@@ -10,7 +10,13 @@ const encode = (input) => {
   return btoa(input);
 };
 
-const saveKey = () => {
+const saveKey = async () => {
+  try {
+    await navigator.clipboard.writeText("hello world");
+    console.log("success!");
+  } catch (error) {
+    console.log(error);
+  }
   const input = document.getElementById("key_input");
 
   if (input) {
